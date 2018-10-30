@@ -1,0 +1,96 @@
+body
+{
+    font-family: Arial, sans-serif;
+}
+
+input,
+input[value="cards"]:checked ~ main .description,
+input[value="list"]:checked ~ main .short-info,
+input[value="cards"]:checked ~ label[for="card-view"],
+input[value="list"]:checked ~ label[for="list-view"]
+{
+    display: none;
+}
+
+main
+{
+    text-align: center;
+}
+
+.cat
+{
+    overflow: hidden;
+    text-align: left;
+    border: 1px solid rgb(196, 196, 196);
+}
+
+input[value="cards"]:checked ~ main .cat
+{
+    display: inline-block;
+    width: 250px;
+    height: 350px;
+    margin: 5px;
+}
+
+input[value="list"]:checked ~ main .cat
+{
+    width: 50%;
+    margin: auto;
+    padding: 25px;
+    min-height: 575px;
+}
+
+input[value="cards"]:checked ~ main .cat:hover
+{
+    box-shadow: 0 0 6px #000;
+}
+
+.cat header
+{
+    width: 100%;
+    overflow: hidden;
+}
+
+input[value="cards"]:checked ~ main .cat header
+{
+    height: 160px;
+}
+
+input[value="list"]:checked ~ main .cat header
+{
+    height: 400px;
+}
+
+input[value="cards"]:checked ~ main .cat header ~ *
+{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.cat header img
+{
+    width: 100%;
+}
+
+.name
+{
+    margin-top: 0px;
+    margin-bottom: 15px;
+    font-size: 23px;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 20px;
+}
+
+.short-info, .description
+{
+    font-size: 15px;
+    color: rgb(73, 73, 73);
+}
+
+.short-info p:not(:last-of-type)
+{
+    margin: auto 0px;
+}
