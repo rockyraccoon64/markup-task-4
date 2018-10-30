@@ -4,10 +4,10 @@ body
 }
 
 input,
-input[value="cards"]:checked ~ main .description,
-input[value="list"]:checked ~ main .short-info,
-input[value="cards"]:checked ~ label[for="card-view"],
-input[value="list"]:checked ~ label[for="list-view"]
+input[value='cards']:checked ~ main .description,
+input[value='list']:checked ~ main .short-info,
+input[value='cards']:checked ~ label[for='card-view'],
+input[value='list']:checked ~ label[for='list-view']
 {
     display: none;
 }
@@ -21,26 +21,34 @@ main
 {
     overflow: hidden;
     text-align: left;
-    border: 1px solid rgb(196, 196, 196);
+    border-style: solid;
+    border-color: rgb(196, 196, 196);
 }
 
-input[value="cards"]:checked ~ main .cat
+input[value='cards']:checked ~ main .cat
 {
     display: inline-block;
     width: 250px;
     height: 350px;
     margin: 5px;
+    border-width: 1px;
 }
 
-input[value="list"]:checked ~ main .cat
+input[value='list']:checked ~ main .cat
 {
     width: 50%;
+    min-width: 200px;
     margin: auto;
     padding: 25px;
-    min-height: 575px;
+    border-width: 1px 1px 0;
 }
 
-input[value="cards"]:checked ~ main .cat:hover
+input[value='list']:checked ~ main .cat:last-of-type
+{
+    border-bottom-width: 1px;
+}
+
+input[value='cards']:checked ~ main .cat:hover
 {
     box-shadow: 0 0 6px #000;
 }
@@ -51,17 +59,12 @@ input[value="cards"]:checked ~ main .cat:hover
     overflow: hidden;
 }
 
-input[value="cards"]:checked ~ main .cat header
+input[value='cards']:checked ~ main .cat header
 {
     height: 160px;
 }
 
-input[value="list"]:checked ~ main .cat header
-{
-    height: 400px;
-}
-
-input[value="cards"]:checked ~ main .cat header ~ *
+input[value='cards']:checked ~ main .cat > :not(header)
 {
     padding-left: 10px;
     padding-right: 10px;
@@ -74,9 +77,10 @@ input[value="cards"]:checked ~ main .cat header ~ *
 
 .name
 {
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 15px;
     font-size: 23px;
+    font-weight: normal;
     color: black;
     white-space: nowrap;
     overflow: hidden;
@@ -84,7 +88,8 @@ input[value="cards"]:checked ~ main .cat header ~ *
     padding-top: 20px;
 }
 
-.short-info, .description
+.short-info,
+.description
 {
     font-size: 15px;
     color: rgb(73, 73, 73);
@@ -92,5 +97,11 @@ input[value="cards"]:checked ~ main .cat header ~ *
 
 .short-info p:not(:last-of-type)
 {
-    margin: auto 0px;
+    margin: auto;
+}
+
+.description
+{
+    text-align: justify;
+    hyphens: auto;
 }
